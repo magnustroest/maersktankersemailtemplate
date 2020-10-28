@@ -43547,6 +43547,7 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+app.set('views', './views');
 app.use(bodyParser.json());
 app.use(`/.netlify/functions/app/views/contact`, router);
 app.use(`/.netlify/functions/app`, router);
