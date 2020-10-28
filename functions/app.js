@@ -12,10 +12,10 @@ const router = express.Router();
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.set('contact', __dirname + 'functions/views');
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
 app.use(`/.netlify/functions/app`, router);
-
 router.get('/', (req, res) => {
     res.render('contact', { layout: false });
 });
@@ -69,7 +69,5 @@ router.post('/send', (req, res) => {
         res.render('contact', {msg:'Email has been sent'});
     });
     });
-  
-  //app.listen(3000, () => console.log('Server started...'));
 module.exports = app;
 module.exports.handler = serverless(app);

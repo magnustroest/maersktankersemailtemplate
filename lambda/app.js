@@ -43528,7 +43528,7 @@ function wrappy (fn, cb) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-const nodemailer = __webpack_require__(/*! nodemailer */ "../node_modules/nodemailer/lib/nodemailer.js");
+/* WEBPACK VAR INJECTION */(function(__dirname) {const nodemailer = __webpack_require__(/*! nodemailer */ "../node_modules/nodemailer/lib/nodemailer.js");
 
 const express = __webpack_require__(/*! express */ "../node_modules/express/index.js");
 
@@ -43544,10 +43544,9 @@ const app = express();
 const router = express.Router();
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-app.use(bodyParser.json());
+app.set('contact', __dirname + 'functions/views'); // app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
+
 app.use(`/.netlify/functions/app`, router);
 router.get('/', (req, res) => {
   res.render('contact', {
@@ -43601,10 +43600,10 @@ router.post('/send', (req, res) => {
       msg: 'Email has been sent'
     });
   });
-}); //app.listen(3000, () => console.log('Server started...'));
-
+});
 module.exports = app;
 module.exports.handler = serverless(app);
+/* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
 
