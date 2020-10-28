@@ -13,13 +13,14 @@ const router = express.Router();
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 router.use(bodyParser.urlencoded({ extended: false }))
+
 router.use(bodyParser.json())
 
 app.use(`/.netlify/functions/app`, router);
 
 router.get('/', (req, res) => {
 
-    res.render('contact', { layout: false });
+    res.render('contact.handlebars', { layout: false });
 });
 
 router.post('/send', (req, res) => {

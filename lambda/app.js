@@ -43550,7 +43550,7 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json());
 app.use(`/.netlify/functions/app`, router);
 router.get('/', (req, res) => {
-  res.render('contact', {
+  res.render('contact.handlebars', {
     layout: false
   });
 });
