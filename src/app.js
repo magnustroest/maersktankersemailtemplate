@@ -19,7 +19,7 @@ app.use(`/.netlify/functions/app`, router);
 
 router.get('/', (req, res) => {
 
-    res.render('views/..contact', { layout: false });
+    res.render('contact');
 });
 
 router.post('/send', (req, res) => {
