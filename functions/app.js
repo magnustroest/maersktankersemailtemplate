@@ -13,7 +13,7 @@ const router = express.Router();
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }))
-//app.set('views', path.join(__dirname, '/.netlify/functions/views'))
+app.set('views', path.join(__dirname, '/.netlify/functions/views'))
 
 app.use(bodyParser.json())
 
