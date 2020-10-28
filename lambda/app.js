@@ -43544,13 +43544,14 @@ const app = express();
 const router = express.Router();
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-router.use(bodyParser.urlencoded({
+app.use(bodyParser.urlencoded({
   extended: false
-}));
-router.use(bodyParser.json());
+})); //app.set('views', path.join(__dirname, '/.netlify/functions/views'))
+
+app.use(bodyParser.json());
 app.use(`/.netlify/functions/app`, router);
 router.get('/', (req, res) => {
-  res.render('contact.handlebars', {
+  res.render('contact', {
     layout: false
   });
 });
