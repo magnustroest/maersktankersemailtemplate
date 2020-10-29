@@ -12958,6 +12958,7 @@ exports.handler = async function (event, context) {
         rejectUnauthorized: false
       }
     });
+    console.log(transporter);
     console.log("1");
     let mailOptions = {
       from: 'yes@test.dk',
