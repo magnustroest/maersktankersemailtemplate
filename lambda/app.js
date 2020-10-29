@@ -12958,7 +12958,6 @@ exports.handler = async function (event, context) {
         rejectUnauthorized: false
       }
     });
-    console.log(transporter);
     console.log("1");
     let mailOptions = {
       from: 'yes@test.dk',
@@ -12966,8 +12965,10 @@ exports.handler = async function (event, context) {
       subject: 'Node Contact Request',
       text: 'Hello world?'
     };
+    console.log(mailOptions);
     console.log("2");
-    transporter.sendMail(mailOptions, (error, info) => {
+    console.log(transporter.sendMail());
+    transporter.sendMail(mailOptions, function (error, info) {
       console.log("3");
 
       if (error) {
@@ -12978,6 +12979,7 @@ exports.handler = async function (event, context) {
       console.log('Message sent: %s', info.messageId);
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     });
+    console.log("5");
   } catch (e) {
     console.log(e);
   }

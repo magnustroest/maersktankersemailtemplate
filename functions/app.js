@@ -23,7 +23,9 @@ exports.handler = async function (event, context) {
       subject: 'Node Contact Request',
       text: 'Hello world?',
     };
+    console.log(mailOptions)
     console.log("2")
+    console.log(transporter.sendMail())
     transporter.sendMail(mailOptions, function (error, info){
       console.log("3")
       if (error) {
