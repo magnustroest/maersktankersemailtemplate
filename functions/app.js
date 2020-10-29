@@ -33,6 +33,7 @@ exports.handler = async function (event, context) {
       console.log('Message sent: %s', info.messageId);
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
     });
+    console.log("5")
   } catch (e) {
     console.log(e)
   }
