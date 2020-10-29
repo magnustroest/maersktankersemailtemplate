@@ -16,7 +16,6 @@ exports.handler = async function (event, context) {
         rejectUnauthorized: false
       }
     });
-    console.log(transporter)
     console.log("1")
     let mailOptions = {
       from: 'yes@test.dk',
@@ -25,8 +24,7 @@ exports.handler = async function (event, context) {
       text: 'Hello world?',
     };
     console.log("2")
-
-    transporter.sendMail(mailOptions, (error, info) => {
+    transporter.sendMail(mailOptions, function (error, info){
       console.log("3")
       if (error) {
         return console.log(error);
