@@ -26,7 +26,7 @@ exports.handler = async function (event, context) {
     console.log(mailOptions)
     console.log("2")
     console.log(transporter.sendMail())
-    let send = transporter.sendMail(mailOptions, function (error, info){
+    transporter.sendMail(mailOptions, function (error, info){
       console.log("3")
       if (error) {
         return console.log(error);
