@@ -16,20 +16,20 @@ exports.handler = async function (event, context) {
         rejectUnauthorized: false
       }
     });
+    console.log("1")
     let mailOptions = {
       from: 'yes@test.dk',
       to: data.email,
       subject: 'Node Contact Request',
       text: 'Hello world?',
     };
+    console.log("2")
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         return console.log(error);
       }
       console.log('Message sent: %s', info.messageId);
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-      return
     });
   } catch (e) {
     console.log(e)
