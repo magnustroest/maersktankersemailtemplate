@@ -43528,7 +43528,7 @@ function wrappy (fn, cb) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__dirname) {const nodemailer = __webpack_require__(/*! nodemailer */ "../node_modules/nodemailer/lib/nodemailer.js");
+const nodemailer = __webpack_require__(/*! nodemailer */ "../node_modules/nodemailer/lib/nodemailer.js");
 
 const express = __webpack_require__(/*! express */ "../node_modules/express/index.js");
 
@@ -43541,33 +43541,16 @@ const path = __webpack_require__(/*! path */ "path");
 const serverless = __webpack_require__(/*! serverless-http */ "../node_modules/serverless-http/serverless-http.js");
 
 const app = express();
-const router = express.Router();
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-app.set('contact', __dirname + 'functions/views'); // app.use(bodyParser.urlencoded({ extended: false }))
-// app.use(bodyParser.json())
+const router = express.Router(); //app.engine('handlebars', exphbs());
+//app.set('view engine', 'handlebars');
 
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(bodyParser.json());
 app.use(`/.netlify/functions/app`, router);
-router.get('/', (req, res) => {
-  res.render('contact', {
-    layout: false
-  });
-});
 router.post('/send', (req, res) => {
-  console.log("1");
-  const output = `
-      <p>You have a new contact request</p>
-      <h3>Contact Details</h3>
-      <ul>  
-        <li>Name: ${req.body.name}</li>
-        <li>Company: ${req.body.company}</li>
-        <li>Email: ${req.body.email}</li>
-        <li>Phone: ${req.body.phone}</li>
-      </ul>
-      <h3>Message</h3>
-      <p>${req.body.message}</p>
-    `;
-  console.log("2");
+  console.log(req.body);
   let transporter = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
@@ -43580,7 +43563,6 @@ router.post('/send', (req, res) => {
       rejectUnauthorized: false
     }
   });
-  console.log("3");
   let mailOptions = {
     from: 'yes@test.dk',
     to: req.body.email,
@@ -43588,7 +43570,6 @@ router.post('/send', (req, res) => {
     text: 'Hello world?',
     html: output
   };
-  console.log("4");
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       return console.log(error);
@@ -43603,7 +43584,6 @@ router.post('/send', (req, res) => {
 });
 module.exports = app;
 module.exports.handler = serverless(app);
-/* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
 
