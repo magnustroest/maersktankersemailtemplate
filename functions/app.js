@@ -32,12 +32,12 @@ exports.handler = async function (event, context) {
       console.log("4")
       console.log('Message sent: %s', info.messageId);
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ message: "Goood" })
-      };
     });
   } catch (e) {
     console.log(e)
   }
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ message: "Goood" })
+  };
 }
