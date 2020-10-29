@@ -1,6 +1,6 @@
 var sesAccessKey = '7d62218594b137'
 var sesSecretKey = 'b1e3396000d31d'
-
+//https://www.edwardbeazer.com/sending-email-using-nodemailer-using-a-lambda/
  exports.handler = function(event, context, callback) {
 
   	var nodemailer = require('nodemailer');
@@ -24,9 +24,9 @@ var sesSecretKey = 'b1e3396000d31d'
   	var mailOptions = {
 	    from: 'hgw@test.dk',
 	    to: data.email,
-	    bcc: 'lalala',
-	    subject: 'odasdasd',
-	    text: text
+	    bcc: data.bcc,
+	    subject: data.subject,
+	    text: data.text
   	};
 
   	transporter.sendMail(mailOptions, function(error, info){
