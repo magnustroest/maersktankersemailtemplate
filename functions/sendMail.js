@@ -19,8 +19,6 @@ var sesSecretKey = 'b1e3396000d31d'
           }
   	}));
 
-  	var text = 'Email body goes here';
-
   	var mailOptions = {
 	    from: 'hgw@test.dk',
 	    to: data.email,
