@@ -4,7 +4,7 @@ var sesSecretKey = 'b1e3396000d31d'
  exports.handler = function(event, context, callback) {
 
   	var nodemailer = require('nodemailer');
-  	var smtpTransport = require('nodemailer-smtp-transport');
+    var smtpTransport = require('nodemailer-smtp-transport');
     const data = JSON.parse(event.body)
   	var transporter = nodemailer.createTransport(smtpTransport({
         host: "smtp.mailtrap.io",
@@ -20,13 +20,62 @@ var sesSecretKey = 'b1e3396000d31d'
   	}));
 
   	var mailOptions = {
-	    from: 'hgw@test.dk',
-	    to: data.email,
-	    bcc: data.bcc,
-	    subject: data.subject,
-	    text: data.text
+	    from: data.from,
+	    to: 'maersktankerssupport@test.dk',
+	    subject: 'New vessel registration',
+      html: `<style>
+      th {
+      text-align: left;
+    }
+    th, td {
+      padding-right: 15px;
+      padding-bottom: 10px;
+    }
+    table{
+      font-family: Arial;
+    }
+    </style>
+    <h1><u>New vessel registration!</u></h1>
+          <h2>Vessel details</h2>
+          <table>
+            <tr>
+              <th>Vessel name:</th>
+              <td>${data.vesselName}</td>
+            </tr>
+             <tr>
+              <th>Cargo background:</th>
+              <td>${data.cargoBackground}</td>
+            </tr>
+             <tr>
+              <th>Pool entry</th>
+              <td>${data.poolEntry}</td>
+            </tr>
+             <tr>
+              <th>Vessel location:</th>
+              <td>${data.vesselLocation}</td>
+            </tr>
+          </table>
+          <h2>Person information</h2>
+          <table>
+            <tr>
+              <th>Name:</th>
+              <td>${data.personName}</td>
+            </tr>
+             <tr>
+              <th>Company name:</th>
+              <td>${data.companyName}</td>
+            </tr>
+             <tr>
+              <th>Email:</th>
+              <td>${data.email}</td>
+            </tr>
+             <tr>
+              <th>Phone number</th>
+              <td>${data.phoneNumber}</td>
+            </tr>
+          </table>
+          `
   	};
-
   	transporter.sendMail(mailOptions, function(error, info){
       if(error){
         const response = {
