@@ -33,7 +33,7 @@ exports.handler = function (event, context, callback) {
     if (error) {
       const response = {
         statusCode: 500,
-        headers: headers,
+        headers:headers,
         body: JSON.stringify({
           error: error.message,
         }),

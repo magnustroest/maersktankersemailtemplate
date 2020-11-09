@@ -11,8 +11,7 @@ const headers = {
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
 };
-exports.handler = function (event, context) {
-    console.log('parsed')
+exports.handler = function (event, context, callback) {
     const createLayout = require('./layout');
     var nodemailer = require('nodemailer');
     const data = JSON.parse(event.body)

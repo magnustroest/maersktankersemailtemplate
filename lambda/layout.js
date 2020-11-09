@@ -1,1 +1,150 @@
-!function(t,n){for(var e in n)t[e]=n[e]}(exports,function(t){var n={};function e(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return t[r].call(o.exports,o,o.exports,e),o.l=!0,o.exports}return e.m=t,e.c=n,e.d=function(t,n,r){e.o(t,n)||Object.defineProperty(t,n,{enumerable:!0,get:r})},e.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},e.t=function(t,n){if(1&n&&(t=e(t)),8&n)return t;if(4&n&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(e.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&n&&"string"!=typeof t)for(var o in t)e.d(r,o,function(n){return t[n]}.bind(null,o));return r},e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,"a",n),n},e.o=function(t,n){return Object.prototype.hasOwnProperty.call(t,n)},e.p="",e(e.s=12)}({12:function(t,n){t.exports=(t,n,e,r,o,l,a,i)=>`<style>\n    th {\n    text-align: left;\n  }\n  th, td {\n    padding-right: 15px;\n    padding-bottom: 10px;\n  }\n  table{\n    font-family: Arial;\n  }\n  </style>\n  <h1><u>New vessel registration!</u></h1>\n        <h2>Vessel details</h2>\n        <table>\n          <tr>\n            <th>Vessel name:</th>\n            <td>${t}</td>\n          </tr>\n           <tr>\n            <th>Cargo background:</th>\n            <td>${n}</td>\n          </tr>\n           <tr>\n            <th>Pool entry</th>\n            <td>${e}</td>\n          </tr>\n           <tr>\n            <th>Vessel location:</th>\n            <td>${r}</td>\n          </tr>\n        </table>\n        <h2>Person information</h2>\n        <table>\n          <tr>\n            <th>Name:</th>\n            <td>${o}</td>\n          </tr>\n           <tr>\n            <th>Company name:</th>\n            <td>${l}</td>\n          </tr>\n           <tr>\n            <th>Email:</th>\n            <td>${a}</td>\n          </tr>\n           <tr>\n            <th>Phone number</th>\n            <td>${i}</td>\n          </tr>\n        </table>`}}));
+(function(e, a) { for(var i in a) e[i] = a[i]; }(exports, /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./layout.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./layout.js":
+/*!*******************!*\
+  !*** ./layout.js ***!
+  \*******************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = (vesselName, cargoBackground, poolEntry, vesselLocation, personName, companyName, email, phoneNumber) => `<style>
+    th {
+    text-align: left;
+  }
+  th, td {
+    padding-right: 15px;
+    padding-bottom: 10px;
+  }
+  table{
+    font-family: Arial;
+  }
+  </style>
+  <h1><u>New vessel registration!</u></h1>
+        <h2>Vessel details</h2>
+        <table>
+          <tr>
+            <th>Vessel name:</th>
+            <td>${vesselName}</td>
+          </tr>
+           <tr>
+            <th>Cargo background:</th>
+            <td>${cargoBackground}</td>
+          </tr>
+           <tr>
+            <th>Pool entry</th>
+            <td>${poolEntry}</td>
+          </tr>
+           <tr>
+            <th>Vessel location:</th>
+            <td>${vesselLocation}</td>
+          </tr>
+        </table>
+        <h2>Person information</h2>
+        <table>
+          <tr>
+            <th>Name:</th>
+            <td>${personName}</td>
+          </tr>
+           <tr>
+            <th>Company name:</th>
+            <td>${companyName}</td>
+          </tr>
+           <tr>
+            <th>Email:</th>
+            <td>${email}</td>
+          </tr>
+           <tr>
+            <th>Phone number</th>
+            <td>${phoneNumber}</td>
+          </tr>
+        </table>`;
+
+/***/ })
+
+/******/ })));
